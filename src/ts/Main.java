@@ -7,9 +7,15 @@ import java.sql.SQLException;
 
 public class Main {
 
+    private static String datenbank = "turnierdb.db";
+
     public static void main(String[] args) {
         //createNewDatabase("test.db");
-        Connect.connect();
+        //Connect.connect("turnierdb.db");
+        //dbfill.erzeugeTurnier(datenbank, "Test");
+        //dbselect.selectTurnier();
+        dbfill.spielerHinzufügen("Pio", "Pompino", "ppompino@email.com");
+        dbselect.selectSpieler();
     }
 
 //    public static void createNewDatabase(String fileName){
