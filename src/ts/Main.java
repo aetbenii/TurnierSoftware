@@ -12,11 +12,28 @@ public class Main {
     public static void main(String[] args) {
         //createNewDatabase("test.db");
         //Connect.connect("turnierdb.db");
-        //dbfill.erzeugeTurnier(datenbank, "Test");
-        //dbselect.selectTurnier();
-        dbfill.spielerHinzufügen("Pio", "Pompino", "ppompino@email.com");
+        //dbfill.erzeugeTurnier("Turnier404");
+        dbselect.selectTurnier();
+        System.out.println('\n');
+        //dbfill.spielerHinzufügen("Kevin", "F", "kefin@email.com");
+
         dbselect.selectSpieler();
+        System.out.println('\n');
+
+        dbselect.findeSpielerEinesTurnieres("Turnier404");
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    public static void createNewDatabase(String fileName){
 //        String url = "jdbc:sqlite:C:\\sqlite\\db" +fileName;
