@@ -48,6 +48,7 @@ public class dbselect {
     }
 
     // alle spieler von einem bestimmten Turnier.
+    // nicht void sondern eine Liste zurückgeben.
     public static void findeSpielerEinesTurnieres(String TurnierName){
         Connection con = Connect.connect(datenbank);
         try(Statement statement = con.createStatement()){
