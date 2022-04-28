@@ -1,7 +1,7 @@
 package ts;
 
-import java.net.ConnectException;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class dbselect {
 
@@ -33,23 +33,27 @@ public class dbselect {
         }
     }
 
-    public static void selectSpieler(){
+    public static ArrayList selectSpieler(){
+        ArrayList al = new ArrayList<>();
         Connection con = Connect.connect(datenbank);
         try(Statement statement = con.createStatement()){
             ResultSet rs = statement.executeQuery("SELECT * FROM Spieler;");
             while(rs.next()){
                 System.out.println(rs.getString(1) + " " + rs.getString(2)+ " " + rs.getString(3) + " " + rs.getString(4));
+                al.add(new spieler(rs.getString(2),rs.getString(3),rs.getString(4)));
             }
             con.close();
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return al;
     }
 
     // alle spieler von einem bestimmten Turnier.
     // nicht void sondern eine Liste zurückgeben.
     public static void findeSpielerEinesTurnieres(String TurnierName){
+
         Connection con = Connect.connect(datenbank);
         try(Statement statement = con.createStatement()){
             //nach TurnierID gesucht.
@@ -61,10 +65,12 @@ public class dbselect {
                             "WHERE TurnierName like '"+TurnierName+"'");
             while(rs.next()){
                 System.out.println(rs.getString(1) + " " + rs.getString(2)+ " - " + rs.getString(3));
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
     // alle Runden von einem bestimmten Turnier.

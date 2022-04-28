@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Main {
 
     private static String datenbank = "turnierdb.db";
 
     public static void main(String[] args) {
+
+        ArrayList<spieler> allespieler = new ArrayList<>();
         //createNewDatabase("test.db");
         //Connect.connect("turnierdb.db");
         //dbfill.erzeugeTurnier("Turnier404");
@@ -17,7 +20,8 @@ public class Main {
         System.out.println('\n');
         //dbfill.spielerHinzufügen("Kevin", "F", "kefin@email.com");
 
-        dbselect.selectSpieler();
+        allespieler = dbselect.selectSpieler();
+
         System.out.println('\n');
 
         dbselect.findeSpielerEinesTurnieres("Turnier404");
