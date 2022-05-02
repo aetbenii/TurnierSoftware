@@ -11,4 +11,11 @@ public class spieler {
         this.nachname = nachname;
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "spieler{" +
+                "vorname='" + vorname + '\'' +
+                ", nachname='" + nachname + '\'';
+    }
 }

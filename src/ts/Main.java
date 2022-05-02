@@ -22,7 +22,7 @@ public class Main {
 
         allespieler = dbselect.selectSpieler();
 
-        System.out.println('\n');
+        System.out.println('\n' + allespieler.toString());
 
         dbselect.findeSpielerEinesTurnieres("Turnier404");
     }
